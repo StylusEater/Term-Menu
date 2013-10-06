@@ -86,12 +86,12 @@ sub menu {
 			# The line below was a hint by Stephen Davies, thanks!
 			$self->{tried} = 0 if(!defined($self->{tried}));
 			$self->{tried}++ if($self->{tries});
-			if($self->{tried} >= $self->{tries}) {
+			if($self->{tried} >= $self->{tries} and $self->{tries} != 0) {
 				last;
 			}
 		}
 	}
-	if(defined($self) and ${$self}{tried} >= ${$self}{tries}) {
+	if(defined($self) and ${$self}{tried} >= ${$self}{tries} and ${$self}{tries} != 0) {
 		print ${$self}{toomanytries},"\n" if defined ${$self}{toomanytries};
 		${$self}{tried} = 0;
 		${$self}{lastval} = undef;
